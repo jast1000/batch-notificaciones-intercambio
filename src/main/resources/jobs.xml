@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<job-scheduling-data xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd"
+                     version="2.0">
+    <schedule>
+        <job>
+            <name>job-notificacion-cuenta</name>
+            <group>group-batch</group>
+            <description>Job de notificaciones de cuentas para nuevos usuarios</description>
+            <job-class>com.serverhttp.janiserver.batch.notificaciones.jobs.NotificacionCuentaJob</job-class>
+        </job>
+        
+        <job>
+            <name>job-notificacion-invitacion</name>
+            <group>group-batch</group>
+            <description>Job de notificaciones de invitaciones a participar en intercambio</description>
+            <job-class>com.serverhttp.janiserver.batch.notificaciones.jobs.NotificacionInvitacionJob</job-class>
+        </job>
+        
+        <job>
+            <name>job-notificacion-pareja</name>
+            <group>group-batch</group>
+            <description>Job de notificaciones de asignacion de pareja en intercambio</description>
+            <job-class>com.serverhttp.janiserver.batch.notificaciones.jobs.NotificacionParejaJob</job-class>
+        </job>
+        
+        <job>
+            <name>job-notificacion-intercambio</name>
+            <group>group-batch</group>
+            <description>Job de notificaciones de la lista de intercambio</description>
+            <job-class>com.serverhttp.janiserver.batch.notificaciones.jobs.NotificacionParticipantesJob</job-class>
+        </job>
+
+        <trigger>
+            <cron>
+                <name>cron-notificacion-cuenta</name>
+                <group>batch-trigger</group>
+                <job-name>job-notificacion-cuenta</job-name>
+                <job-group>group-batch</job-group>
+                <cron-expression>0/20 * * 1/1 * ? *</cron-expression> 
+            </cron>
+        </trigger>
+        
+        <trigger>
+            <cron>
+                <name>cron-notificacion-invitacion</name>
+                <group>batch-trigger</group>
+                <job-name>job-notificacion-invitacion</job-name>
+                <job-group>group-batch</job-group>
+                <cron-expression>0/20 * * 1/1 * ? *</cron-expression> 
+            </cron>
+        </trigger>
+        
+        <trigger>
+            <cron>
+                <name>cron-notificacion-pareja</name>
+                <group>batch-trigger</group>
+                <job-name>job-notificacion-pareja</job-name>
+                <job-group>group-batch</job-group>
+                <cron-expression>0/20 * * 1/1 * ? *</cron-expression> 
+            </cron>
+        </trigger>
+        
+        <trigger>
+            <cron>
+                <name>cron-notificacion-intercambio</name>
+                <group>batch-trigger</group>
+                <job-name>job-notificacion-intercambio</job-name>
+                <job-group>group-batch</job-group>
+                <cron-expression>0/20 * * 1/1 * ? *</cron-expression> 
+            </cron>
+        </trigger>
+        
+    </schedule>
+</job-scheduling-data>
